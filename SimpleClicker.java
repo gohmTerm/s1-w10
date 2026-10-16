@@ -13,8 +13,17 @@ public class SimpleClicker extends JPanel implements MouseListener {
         addMouseListener (this);
     }
     
+	public void paintComponent(Graphics g){
+		if(xClick != -9999 && yClick != -9999)
+			g.drawOval(xClick, yClick, 100, 100);
+		g.drawOval(x, y, 100, 100);
+	}
+
     public void mouseClicked (MouseEvent event) {
 		System.out.println ("You're tickling me!");
+		this.xClick = event.getX();
+		this.yClick = event.getY();
+		repaint();
 	}
 	
 	public void mouseReleased (MouseEvent event) {
