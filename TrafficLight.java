@@ -22,12 +22,6 @@ public class TrafficLight extends JPanel implements MouseListener{
         g.drawOval(100, 100, 200, 200);
         g.drawOval(100, 350, 200, 200);
 		g.drawOval(100, 600, 200, 200);
-
-        //if(xClick != -9999 && yClick != -9999)
-		    //g.drawOval(xClick, yClick, 100, 100);
-	}
-
-	public void sick(Graphics g){
         if (clickCount == 1){
             g.setColor(Color.red);
             g.fillOval(100, 100, 200, 200);
@@ -52,7 +46,10 @@ public class TrafficLight extends JPanel implements MouseListener{
             g.setColor(Color.green);
 		    g.fillOval(100, 600, 200, 200);
         }
-    }
+
+        //if(xClick != -9999 && yClick != -9999)
+		    //g.drawOval(xClick, yClick, 100, 100);
+	}
 
 	public void mouseMoved(MouseEvent event){
 
@@ -62,10 +59,9 @@ public class TrafficLight extends JPanel implements MouseListener{
 		this.xClick = event.getX();
 		this.yClick = event.getY();
         clickCount = clickCount + 1;
-        if (clickCount == 4){
+        if (clickCount > 3){
             clickCount = 1;
         }
-        this.sick(getGraphics());
 		repaint();
 	}
 	
